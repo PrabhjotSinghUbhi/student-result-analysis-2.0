@@ -1,0 +1,29 @@
+{
+  "name": "student-result-analysis-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "pdf:deps": "python -m pip install -r tools/requirements-pdf.txt",
+    "pdf:to:csv": "python tools/pdf_to_csv.py"
+  },
+  "dependencies": {
+    "csv-stringify": "^6.5.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "exceljs": "^4.4.0",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "mysql2": "^3.12.0",
+    "morgan": "^1.10.0",
+    "multer": "^2.0.2",
+    "pdfkit": "^0.15.0",
+    "csv-parse": "^5.5.6",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
