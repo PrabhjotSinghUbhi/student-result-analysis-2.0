@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant User
+    participant UI as React UI
+    participant API as Express API
+    participant DB as MySQL
+
+    User->>UI: Open Dashboard
+    UI->>API: GET /api/analytics/dashboard
+    API->>DB: Aggregate analytics queries
+    DB-->>API: Metrics + distributions
+    API-->>UI: JSON payload
+    UI-->>User: Charts and tables
+
+    User->>UI: Upload file
+    UI->>API: POST /api/upload/results (multipart)
+    API->>DB: Upsert students, subjects, results
+    DB-->>API: Insert/Update status
+    API-->>UI: Import summary + row errors
+    UI-->>User: Upload report

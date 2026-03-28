@@ -1,0 +1,19 @@
+flowchart LR
+    U[User: Faculty/Admin] --> FE[React Frontend]
+    FE -->|REST API Calls| BE[Express Backend]
+    FE -->|Charts & Tables| VIZ[Recharts Visualization]
+
+    BE --> RT[Route Layer]
+    RT --> CT[Controller Layer]
+    CT --> SV[Service Layer]
+    SV --> DB[(MySQL Database)]
+
+    FE -->|Upload CSV/XLS/XLSX| UP[/upload/results]
+    UP --> BE
+
+    BE -->|CSV Report| RCSV[/reports/students/:id/csv]
+    BE -->|PDF Report| RPDF[/reports/students/:id/pdf]
+
+    DB --> AN[Analytics Queries]
+    AN --> BE
+    BE --> FE

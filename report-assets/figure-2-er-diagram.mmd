@@ -1,0 +1,34 @@
+erDiagram
+    STUDENTS ||--o{ RESULTS : has
+    SUBJECTS ||--o{ RESULTS : evaluates
+
+    STUDENTS {
+      bigint id PK
+      varchar uid UK
+      varchar name
+      decimal cgpa
+      timestamp created_at
+      timestamp updated_at
+    }
+
+    SUBJECTS {
+      bigint id PK
+      varchar subject_code UK
+      varchar subject_name
+      int credits
+      timestamp created_at
+      timestamp updated_at
+    }
+
+    RESULTS {
+      bigint id PK
+      bigint student_id FK
+      bigint subject_id FK
+      decimal internal_marks
+      decimal external_marks
+      decimal total_marks
+      varchar grade
+      decimal grade_points
+      timestamp created_at
+      timestamp updated_at
+    }
